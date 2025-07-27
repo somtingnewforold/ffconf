@@ -12,6 +12,105 @@
                 "settings": {
                     "vnext": [
                         {
+                            "address": "2607:5300:205:200::e48",
+                            "port": 80,
+                            "users": [
+                                {
+                                    "id": "3ac2de34-47c5-4dd5-afc0-8fb4b05d4077",
+                                    "alterId": 0,
+                                    "email": "t@t.tt",
+                                    "security": "auto",
+                                    "encryption": "none",
+                                    "flow": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "streamSettings": {
+                    "network": "ws",
+                    "wsSettings": {
+                        "path": "/?ed=2560",
+                        "headers": {
+                            "Host": "blaze-can-118.blazecanada.site"
+                        }
+                    }
+                },
+                "mux": {
+                    "enabled": false,
+                    "concurrency": -1
+                }
+            },
+            {
+                "tag": "direct",
+                "protocol": "freedom",
+                "settings": {}
+            },
+            {
+                "tag": "block",
+                "protocol": "blackhole",
+                "settings": {
+                    "response": {
+                        "type": "http"
+                    }
+                }
+            }
+        ],
+        "inbounds": [
+            {
+                "tag": "socks",
+                "port": 10808,
+                "listen": "127.0.0.1",
+                "protocol": "socks",
+                "sniffing": {
+                    "enabled": true,
+                    "destOverride": [
+                        "http",
+                        "tls"
+                    ],
+                    "routeOnly": false
+                },
+                "settings": {
+                    "auth": "noauth",
+                    "udp": true,
+                    "allowTransparent": false
+                }
+            },
+            {
+                "tag": "http",
+                "port": 10809,
+                "listen": "127.0.0.1",
+                "protocol": "http",
+                "sniffing": {
+                    "enabled": true,
+                    "destOverride": [
+                        "http",
+                        "tls"
+                    ],
+                    "routeOnly": false
+                },
+                "settings": {
+                    "auth": "noauth",
+                    "udp": true,
+                    "allowTransparent": false
+                }
+            }
+        ],
+        "remarks": "Canada: || OVH SAS"
+    },
+    {
+        "log": {
+            "access": "",
+            "error": "",
+            "loglevel": "warning"
+        },
+        "outbounds": [
+            {
+                "tag": "proxy",
+                "protocol": "vless",
+                "settings": {
+                    "vnext": [
+                        {
                             "address": "\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>403 Forbidden</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Forbidden</h1>\n<h2>Your client does not have permission to get URL <code>/api/</code> from this server.</h2>\n<h2></h2>\n</body></html>\n",
                             "port": 2096,
                             "users": [
@@ -222,106 +321,6 @@
                 "settings": {
                     "vnext": [
                         {
-                            "address": "\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>403 Forbidden</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Forbidden</h1>\n<h2>Your client does not have permission to get URL <code>/api/</code> from this server.</h2>\n<h2></h2>\n</body></html>\n",
-                            "port": 443,
-                            "users": [
-                                {
-                                    "id": "01d68a9b-be48-4c7b-b4f9-71b29c4cfaca",
-                                    "alterId": 0,
-                                    "email": "t@t.tt",
-                                    "security": "auto",
-                                    "encryption": "none",
-                                    "flow": ""
-                                }
-                            ]
-                        }
-                    ]
-                },
-                "streamSettings": {
-                    "network": "tcp",
-                    "security": "tls",
-                    "tlsSettings": {
-                        "allowInsecure": true,
-                        "serverName": "api.chandplus.com",
-                        "alpn": [],
-                        "show": false
-                    }
-                },
-                "mux": {
-                    "enabled": false,
-                    "concurrency": -1
-                }
-            },
-            {
-                "tag": "direct",
-                "protocol": "freedom",
-                "settings": {}
-            },
-            {
-                "tag": "block",
-                "protocol": "blackhole",
-                "settings": {
-                    "response": {
-                        "type": "http"
-                    }
-                }
-            }
-        ],
-        "inbounds": [
-            {
-                "tag": "socks",
-                "port": 10808,
-                "listen": "127.0.0.1",
-                "protocol": "socks",
-                "sniffing": {
-                    "enabled": true,
-                    "destOverride": [
-                        "http",
-                        "tls"
-                    ],
-                    "routeOnly": false
-                },
-                "settings": {
-                    "auth": "noauth",
-                    "udp": true,
-                    "allowTransparent": false
-                }
-            },
-            {
-                "tag": "http",
-                "port": 10809,
-                "listen": "127.0.0.1",
-                "protocol": "http",
-                "sniffing": {
-                    "enabled": true,
-                    "destOverride": [
-                        "http",
-                        "tls"
-                    ],
-                    "routeOnly": false
-                },
-                "settings": {
-                    "auth": "noauth",
-                    "udp": true,
-                    "allowTransparent": false
-                }
-            }
-        ],
-        "remarks": "Finland: || Hetzner Online GmbH"
-    },
-    {
-        "log": {
-            "access": "",
-            "error": "",
-            "loglevel": "warning"
-        },
-        "outbounds": [
-            {
-                "tag": "proxy",
-                "protocol": "vless",
-                "settings": {
-                    "vnext": [
-                        {
                             "address": "2600:3c0d::f03c:95ff:fe52:961e",
                             "port": 10001,
                             "users": [
@@ -410,110 +409,6 @@
             }
         ],
         "remarks": "Brazil: || Akamai Technologies, Inc."
-    },
-    {
-        "log": {
-            "access": "",
-            "error": "",
-            "loglevel": "warning"
-        },
-        "outbounds": [
-            {
-                "tag": "proxy",
-                "protocol": "vless",
-                "settings": {
-                    "vnext": [
-                        {
-                            "address": "\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>403 Forbidden</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Forbidden</h1>\n<h2>Your client does not have permission to get URL <code>/api/</code> from this server.</h2>\n<h2></h2>\n</body></html>\n",
-                            "port": 443,
-                            "users": [
-                                {
-                                    "id": "14e4cf26-44e1-4888-ba87-e5e6ba3a6b0f",
-                                    "alterId": 0,
-                                    "email": "t@t.tt",
-                                    "security": "auto",
-                                    "encryption": "none",
-                                    "flow": ""
-                                }
-                            ]
-                        }
-                    ]
-                },
-                "streamSettings": {
-                    "network": "tcp",
-                    "security": "tls",
-                    "tlsSettings": {
-                        "allowInsecure": true,
-                        "serverName": "cdn.chandplus.com",
-                        "alpn": [
-                            "http/1.1",
-                            "h2",
-                            "h3"
-                        ],
-                        "show": false
-                    }
-                },
-                "mux": {
-                    "enabled": false,
-                    "concurrency": -1
-                }
-            },
-            {
-                "tag": "direct",
-                "protocol": "freedom",
-                "settings": {}
-            },
-            {
-                "tag": "block",
-                "protocol": "blackhole",
-                "settings": {
-                    "response": {
-                        "type": "http"
-                    }
-                }
-            }
-        ],
-        "inbounds": [
-            {
-                "tag": "socks",
-                "port": 10808,
-                "listen": "127.0.0.1",
-                "protocol": "socks",
-                "sniffing": {
-                    "enabled": true,
-                    "destOverride": [
-                        "http",
-                        "tls"
-                    ],
-                    "routeOnly": false
-                },
-                "settings": {
-                    "auth": "noauth",
-                    "udp": true,
-                    "allowTransparent": false
-                }
-            },
-            {
-                "tag": "http",
-                "port": 10809,
-                "listen": "127.0.0.1",
-                "protocol": "http",
-                "sniffing": {
-                    "enabled": true,
-                    "destOverride": [
-                        "http",
-                        "tls"
-                    ],
-                    "routeOnly": false
-                },
-                "settings": {
-                    "auth": "noauth",
-                    "udp": true,
-                    "allowTransparent": false
-                }
-            }
-        ],
-        "remarks": "Finland: || Hetzner Online GmbH"
     },
     {
         "log": {
@@ -1210,6 +1105,103 @@
                 "settings": {
                     "vnext": [
                         {
+                            "address": "2001:41d0:701:1100::a093",
+                            "port": 80,
+                            "users": [
+                                {
+                                    "id": "5139af95-a453-46c6-831a-a532b6b51305",
+                                    "alterId": 0,
+                                    "email": "t@t.tt",
+                                    "security": "auto",
+                                    "encryption": "none",
+                                    "flow": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "streamSettings": {
+                    "network": "ws",
+                    "wsSettings": {
+                        "path": "/",
+                        "headers": {}
+                    }
+                },
+                "mux": {
+                    "enabled": false,
+                    "concurrency": -1
+                }
+            },
+            {
+                "tag": "direct",
+                "protocol": "freedom",
+                "settings": {}
+            },
+            {
+                "tag": "block",
+                "protocol": "blackhole",
+                "settings": {
+                    "response": {
+                        "type": "http"
+                    }
+                }
+            }
+        ],
+        "inbounds": [
+            {
+                "tag": "socks",
+                "port": 10808,
+                "listen": "127.0.0.1",
+                "protocol": "socks",
+                "sniffing": {
+                    "enabled": true,
+                    "destOverride": [
+                        "http",
+                        "tls"
+                    ],
+                    "routeOnly": false
+                },
+                "settings": {
+                    "auth": "noauth",
+                    "udp": true,
+                    "allowTransparent": false
+                }
+            },
+            {
+                "tag": "http",
+                "port": 10809,
+                "listen": "127.0.0.1",
+                "protocol": "http",
+                "sniffing": {
+                    "enabled": true,
+                    "destOverride": [
+                        "http",
+                        "tls"
+                    ],
+                    "routeOnly": false
+                },
+                "settings": {
+                    "auth": "noauth",
+                    "udp": true,
+                    "allowTransparent": false
+                }
+            }
+        ],
+        "remarks": "Germany: || OVH SAS"
+    },
+    {
+        "log": {
+            "access": "",
+            "error": "",
+            "loglevel": "warning"
+        },
+        "outbounds": [
+            {
+                "tag": "proxy",
+                "protocol": "vless",
+                "settings": {
+                    "vnext": [
+                        {
                             "address": "2001:41d0:701:1100::761b",
                             "port": 443,
                             "users": [
@@ -1620,99 +1612,6 @@
                 "settings": {
                     "vnext": [
                         {
-                            "address": "\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>403 Forbidden</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Forbidden</h1>\n<h2>Your client does not have permission to get URL <code>/api/</code> from this server.</h2>\n<h2></h2>\n</body></html>\n",
-                            "port": 13305,
-                            "users": [
-                                {
-                                    "id": "afdb6e6e-3145-4284-c15a-0a38030a8129",
-                                    "alterId": 0,
-                                    "email": "t@t.tt",
-                                    "security": "auto",
-                                    "encryption": "none",
-                                    "flow": ""
-                                }
-                            ]
-                        }
-                    ]
-                },
-                "streamSettings": {
-                    "network": "tcp"
-                },
-                "mux": {
-                    "enabled": false,
-                    "concurrency": -1
-                }
-            },
-            {
-                "tag": "direct",
-                "protocol": "freedom",
-                "settings": {}
-            },
-            {
-                "tag": "block",
-                "protocol": "blackhole",
-                "settings": {
-                    "response": {
-                        "type": "http"
-                    }
-                }
-            }
-        ],
-        "inbounds": [
-            {
-                "tag": "socks",
-                "port": 10808,
-                "listen": "127.0.0.1",
-                "protocol": "socks",
-                "sniffing": {
-                    "enabled": true,
-                    "destOverride": [
-                        "http",
-                        "tls"
-                    ],
-                    "routeOnly": false
-                },
-                "settings": {
-                    "auth": "noauth",
-                    "udp": true,
-                    "allowTransparent": false
-                }
-            },
-            {
-                "tag": "http",
-                "port": 10809,
-                "listen": "127.0.0.1",
-                "protocol": "http",
-                "sniffing": {
-                    "enabled": true,
-                    "destOverride": [
-                        "http",
-                        "tls"
-                    ],
-                    "routeOnly": false
-                },
-                "settings": {
-                    "auth": "noauth",
-                    "udp": true,
-                    "allowTransparent": false
-                }
-            }
-        ],
-        "remarks": "Ukraine: || Green Floid LLC"
-    },
-    {
-        "log": {
-            "access": "",
-            "error": "",
-            "loglevel": "warning"
-        },
-        "outbounds": [
-            {
-                "tag": "proxy",
-                "protocol": "vless",
-                "settings": {
-                    "vnext": [
-                        {
                             "address": "2001:41d0:305:2100::1ee2",
                             "port": 2052,
                             "users": [
@@ -1914,11 +1813,11 @@
                 "settings": {
                     "vnext": [
                         {
-                            "address": "2001:41d0:801:1000::1431",
-                            "port": 443,
+                            "address": "2a0b:4140:6eba::2",
+                            "port": 8443,
                             "users": [
                                 {
-                                    "id": "c3e86d0c-bfe5-4bb5-a051-5e143df2024d",
+                                    "id": "c0750377-2942-4f06-a4ec-0cde8e272ac6",
                                     "alterId": 0,
                                     "email": "t@t.tt",
                                     "security": "auto",
@@ -1930,17 +1829,20 @@
                     ]
                 },
                 "streamSettings": {
-                    "network": "tcp",
+                    "network": "ws",
+                    "wsSettings": {
+                        "path": "/",
+                        "headers": {
+                            "Host": "s.alighan.ir"
+                        }
+                    },
                     "security": "tls",
                     "tlsSettings": {
                         "allowInsecure": true,
-                        "serverName": "o2.sigmamessenger.com",
+                        "serverName": "ipe4.alighan.ir",
                         "alpn": [
-                            "http/1.1",
-                            "h2",
-                            "h3"
-                        ],
-                        "show": false
+                            "http/1.1"
+                        ]
                     }
                 },
                 "mux": {
@@ -2003,7 +1905,7 @@
                 }
             }
         ],
-        "remarks": "United Kingdom: || OVH SAS"
+        "remarks": "Sweden: || xorek.cloud International LTD"
     },
     {
         "log": {
