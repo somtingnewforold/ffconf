@@ -216,11 +216,11 @@
                 "settings": {
                     "vnext": [
                         {
-                            "address": "2600:3c0d::f03c:95ff:fe52:961e",
-                            "port": 10001,
+                            "address": "\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>403 Forbidden</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Forbidden</h1>\n<h2>Your client does not have permission to get URL <code>/api/</code> from this server.</h2>\n<h2></h2>\n</body></html>\n",
+                            "port": 443,
                             "users": [
                                 {
-                                    "id": "07ccdc51-52f5-47f8-8524-2149ea380063",
+                                    "id": "01d68a9b-be48-4c7b-b4f9-71b29c4cfaca",
                                     "alterId": 0,
                                     "email": "t@t.tt",
                                     "security": "auto",
@@ -233,14 +233,12 @@
                 },
                 "streamSettings": {
                     "network": "tcp",
-                    "security": "reality",
-                    "realitySettings": {
-                        "serverName": "yahoo.com",
-                        "fingerprint": "firefox",
-                        "show": false,
-                        "publicKey": "AMz6hSd2yvrcg1cOe2PPSTX1w6pLWlb_UT-uRHoG1BI",
-                        "shortId": "1a24af87",
-                        "spiderX": "/"
+                    "security": "tls",
+                    "tlsSettings": {
+                        "allowInsecure": true,
+                        "serverName": "api.chandplus.com",
+                        "alpn": [],
+                        "show": false
                     }
                 },
                 "mux": {
@@ -303,7 +301,7 @@
                 }
             }
         ],
-        "remarks": "Brazil: || Akamai Technologies, Inc."
+        "remarks": "Finland: || Hetzner Online GmbH"
     },
     {
         "log": {
@@ -318,11 +316,11 @@
                 "settings": {
                     "vnext": [
                         {
-                            "address": "2001:41d0:701:1100::80f7",
-                            "port": 80,
+                            "address": "2a05:f480:2000:1b69:5400:5ff:fe3c:b6a1",
+                            "port": 443,
                             "users": [
                                 {
-                                    "id": "2054405e-70ff-40a2-ae27-16b63d72390a",
+                                    "id": "101e6a7d-7d10-4859-a626-8a76daab4547",
                                     "alterId": 0,
                                     "email": "t@t.tt",
                                     "security": "auto",
@@ -336,8 +334,16 @@
                 "streamSettings": {
                     "network": "ws",
                     "wsSettings": {
-                        "path": "/",
-                        "headers": {}
+                        "path": "/?ed=2560",
+                        "headers": {
+                            "Host": "nkAnG2rEpLACE.airlineSHoma.Com"
+                        }
+                    },
+                    "security": "tls",
+                    "tlsSettings": {
+                        "allowInsecure": true,
+                        "serverName": "nkAnG2rEpLACE.airlineSHoma.Com",
+                        "alpn": []
                     }
                 },
                 "mux": {
@@ -400,7 +406,111 @@
                 }
             }
         ],
-        "remarks": "Germany: || OVH SAS"
+        "remarks": "Sweden: || The Constant Company"
+    },
+    {
+        "log": {
+            "access": "",
+            "error": "",
+            "loglevel": "warning"
+        },
+        "outbounds": [
+            {
+                "tag": "proxy",
+                "protocol": "vless",
+                "settings": {
+                    "vnext": [
+                        {
+                            "address": "\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>403 Forbidden</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Forbidden</h1>\n<h2>Your client does not have permission to get URL <code>/api/</code> from this server.</h2>\n<h2></h2>\n</body></html>\n",
+                            "port": 443,
+                            "users": [
+                                {
+                                    "id": "14e4cf26-44e1-4888-ba87-e5e6ba3a6b0f",
+                                    "alterId": 0,
+                                    "email": "t@t.tt",
+                                    "security": "auto",
+                                    "encryption": "none",
+                                    "flow": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "streamSettings": {
+                    "network": "tcp",
+                    "security": "tls",
+                    "tlsSettings": {
+                        "allowInsecure": true,
+                        "serverName": "cdn.chandplus.com",
+                        "alpn": [
+                            "http/1.1",
+                            "h2",
+                            "h3"
+                        ],
+                        "show": false
+                    }
+                },
+                "mux": {
+                    "enabled": false,
+                    "concurrency": -1
+                }
+            },
+            {
+                "tag": "direct",
+                "protocol": "freedom",
+                "settings": {}
+            },
+            {
+                "tag": "block",
+                "protocol": "blackhole",
+                "settings": {
+                    "response": {
+                        "type": "http"
+                    }
+                }
+            }
+        ],
+        "inbounds": [
+            {
+                "tag": "socks",
+                "port": 10808,
+                "listen": "127.0.0.1",
+                "protocol": "socks",
+                "sniffing": {
+                    "enabled": true,
+                    "destOverride": [
+                        "http",
+                        "tls"
+                    ],
+                    "routeOnly": false
+                },
+                "settings": {
+                    "auth": "noauth",
+                    "udp": true,
+                    "allowTransparent": false
+                }
+            },
+            {
+                "tag": "http",
+                "port": 10809,
+                "listen": "127.0.0.1",
+                "protocol": "http",
+                "sniffing": {
+                    "enabled": true,
+                    "destOverride": [
+                        "http",
+                        "tls"
+                    ],
+                    "routeOnly": false
+                },
+                "settings": {
+                    "auth": "noauth",
+                    "udp": true,
+                    "allowTransparent": false
+                }
+            }
+        ],
+        "remarks": "Finland: || Hetzner Online GmbH"
     },
     {
         "log": {
@@ -593,6 +703,103 @@
             }
         ],
         "remarks": "Canada: || OVH SAS"
+    },
+    {
+        "log": {
+            "access": "",
+            "error": "",
+            "loglevel": "warning"
+        },
+        "outbounds": [
+            {
+                "tag": "proxy",
+                "protocol": "vless",
+                "settings": {
+                    "vnext": [
+                        {
+                            "address": "2001:41d0:701:1100::9828",
+                            "port": 80,
+                            "users": [
+                                {
+                                    "id": "43791e7f-8e02-4189-9533-4f842bcacd79",
+                                    "alterId": 0,
+                                    "email": "t@t.tt",
+                                    "security": "auto",
+                                    "encryption": "none",
+                                    "flow": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "streamSettings": {
+                    "network": "ws",
+                    "wsSettings": {
+                        "path": "/",
+                        "headers": {}
+                    }
+                },
+                "mux": {
+                    "enabled": false,
+                    "concurrency": -1
+                }
+            },
+            {
+                "tag": "direct",
+                "protocol": "freedom",
+                "settings": {}
+            },
+            {
+                "tag": "block",
+                "protocol": "blackhole",
+                "settings": {
+                    "response": {
+                        "type": "http"
+                    }
+                }
+            }
+        ],
+        "inbounds": [
+            {
+                "tag": "socks",
+                "port": 10808,
+                "listen": "127.0.0.1",
+                "protocol": "socks",
+                "sniffing": {
+                    "enabled": true,
+                    "destOverride": [
+                        "http",
+                        "tls"
+                    ],
+                    "routeOnly": false
+                },
+                "settings": {
+                    "auth": "noauth",
+                    "udp": true,
+                    "allowTransparent": false
+                }
+            },
+            {
+                "tag": "http",
+                "port": 10809,
+                "listen": "127.0.0.1",
+                "protocol": "http",
+                "sniffing": {
+                    "enabled": true,
+                    "destOverride": [
+                        "http",
+                        "tls"
+                    ],
+                    "routeOnly": false
+                },
+                "settings": {
+                    "auth": "noauth",
+                    "udp": true,
+                    "allowTransparent": false
+                }
+            }
+        ],
+        "remarks": "Germany: || OVH SAS"
     },
     {
         "log": {
@@ -897,6 +1104,107 @@
             }
         ],
         "remarks": "Germany: || OVH SAS"
+    },
+    {
+        "log": {
+            "access": "",
+            "error": "",
+            "loglevel": "warning"
+        },
+        "outbounds": [
+            {
+                "tag": "proxy",
+                "protocol": "vless",
+                "settings": {
+                    "vnext": [
+                        {
+                            "address": "\n<html><head>\n<meta http-equiv=\"content-type\" content=\"text/html;charset=utf-8\">\n<title>403 Forbidden</title>\n</head>\n<body text=#000000 bgcolor=#ffffff>\n<h1>Error: Forbidden</h1>\n<h2>Your client does not have permission to get URL <code>/api/</code> from this server.</h2>\n<h2></h2>\n</body></html>\n",
+                            "port": 443,
+                            "users": [
+                                {
+                                    "id": "8f82acbe-f328-471a-8000-fbea349e6ce0",
+                                    "alterId": 0,
+                                    "email": "t@t.tt",
+                                    "security": "auto",
+                                    "encryption": "none",
+                                    "flow": ""
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "streamSettings": {
+                    "network": "tcp",
+                    "security": "tls",
+                    "tlsSettings": {
+                        "allowInsecure": true,
+                        "serverName": "dedic.app-browser.org",
+                        "alpn": [],
+                        "show": false,
+                        "fingerprint": "chrome"
+                    }
+                },
+                "mux": {
+                    "enabled": false,
+                    "concurrency": -1
+                }
+            },
+            {
+                "tag": "direct",
+                "protocol": "freedom",
+                "settings": {}
+            },
+            {
+                "tag": "block",
+                "protocol": "blackhole",
+                "settings": {
+                    "response": {
+                        "type": "http"
+                    }
+                }
+            }
+        ],
+        "inbounds": [
+            {
+                "tag": "socks",
+                "port": 10808,
+                "listen": "127.0.0.1",
+                "protocol": "socks",
+                "sniffing": {
+                    "enabled": true,
+                    "destOverride": [
+                        "http",
+                        "tls"
+                    ],
+                    "routeOnly": false
+                },
+                "settings": {
+                    "auth": "noauth",
+                    "udp": true,
+                    "allowTransparent": false
+                }
+            },
+            {
+                "tag": "http",
+                "port": 10809,
+                "listen": "127.0.0.1",
+                "protocol": "http",
+                "sniffing": {
+                    "enabled": true,
+                    "destOverride": [
+                        "http",
+                        "tls"
+                    ],
+                    "routeOnly": false
+                },
+                "settings": {
+                    "auth": "noauth",
+                    "udp": true,
+                    "allowTransparent": false
+                }
+            }
+        ],
+        "remarks": "Finland: || Hetzner Online GmbH"
     },
     {
         "log": {
